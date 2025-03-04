@@ -13,7 +13,7 @@ app.use(express.json());
 
 // serve static files from the React app in production
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
 // store metadata for files
@@ -159,7 +159,7 @@ app.use("/uploads", express.static("uploads"));
 // handle any remaining routes by serving the React app
 app.get("*", (req, res) => {
   if (process.env.NODE_ENV === "production") {
-    res.sendFile(path.join(__dirname, "client/build/index.html"));
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
   } else {
     res.redirect("http://localhost:3000");
   }
