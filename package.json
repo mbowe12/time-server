@@ -7,11 +7,10 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd client && npm start",
-    "client:build": "cd client && npm run build",
+    "build:client": "cd client && CI=false NODE_ENV=production npm run build",
     "dev:all": "concurrently \"npm run server\" \"npm run client\"",
     "install:all": "npm install && cd client && npm install",
-    "build": "echo 'Building client...' && cd client && CI=false npm run build",
-    "prod": "npm run build && npm start"
+    "prod": "npm run build:client && npm start"
   },
   "dependencies": {
     "cors": "^2.8.5",
